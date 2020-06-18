@@ -1,0 +1,44 @@
+﻿@page
+@model ListModel
+@{
+}
+
+<h1>Granolas</h1>
+
+<form method="get">
+	<div class="form-group">
+		<label for="nombre">Nombre:</label>
+		<input type="search" class="form-control" asp-for="SearchTerm" />
+		<span class="input-group-btn"><button class="btn btn-default" type="submit">Buscar<i class="glyphicon glyphicon-search"></i></button></span>
+
+	</div>
+
+
+</form>
+
+<table class="table">
+
+	@foreach (var granola in Model.Granolas)
+	{
+
+	<tr>
+
+		<td>@granola.Nombre</td>
+		<td>@granola.Tipo</td>
+		<td>@granola.Descripcion</td>
+		<td>
+			<a class="btn btn-lg" asp-page="./Detail" asp-route-granolaid="@granola.Id">
+				<i class=" glyphicon glyphicon-zoom-in"></i>
+			</a>
+		</td>
+
+		<td>
+			<a class="btn btn-lg" asp-page="./Edit" 
+			asp-route-granolaid="@granola.Id">
+				<i class=" glyphicon glyphicon-edit"></i>
+			</a>
+		</td>
+
+	</tr>
+	}
+</table>

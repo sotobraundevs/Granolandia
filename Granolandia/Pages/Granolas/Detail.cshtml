@@ -1,0 +1,15 @@
+﻿@page "{granolaId:int}"
+@model Granolandia.Pages.Granolas.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>@Model.Granola.Nombre</h2>
+
+<div>Id: @Model.Granola.Id</div>
+
+<div>Tipo: @Model.Granola.Tipo</div>
+
+<div>Descripcion: @Model.Granola.Descripcion</div>
+
+<a asp-page="./List" class="btn btn-default">All Restaurant</a>
