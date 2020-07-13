@@ -12,6 +12,9 @@ namespace Granolandia.data
 		IEnumerable<Granola> GetAllGranola();
 		IEnumerable<Granola> GetGranolaByName(string nombre);
 		Granola GetById(int id);
+		Granola UpdateGranola(Granola updateGranola);
+		Granola Add(Granola newgranola);
+		int Commit();
 
 
 
@@ -53,6 +56,31 @@ namespace Granolandia.data
 				   select g;
 		}
 
-		
+		public Granola UpdateGranola(Granola updateGranola)
+		{
+			var granola = granolas.SingleOrDefault(r => r.Id == updateGranola.Id);
+
+			if(granola != null)
+			{
+				granola.Nombre = updateGranola.Nombre;
+				granola.Tipo = updateGranola.Tipo;
+				granola.Descripcion = updateGranola.Descripcion;
+
+			}
+			return granola;
+		}
+
+		public int Commit()
+		{
+			return 0;
+
+		}
+
+		public Granola Add(Granola newgranola)
+		{
+			granolas.Add(newgranola);
+			newgranola.Id = granolas.Max(r => r.Id) + 1;
+			return newgranola;
+		}
 	}
 	}

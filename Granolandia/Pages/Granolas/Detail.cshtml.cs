@@ -11,7 +11,10 @@ namespace Granolandia.Pages.Granolas
 {
     public class DetailModel : PageModel
     {
+
 		private readonly IGranolaData granolaData;
+		[TempData]
+		public string Message { get; set; }
 
 		public Granola Granola { get; set; }
 		//Se inyecta la interface 

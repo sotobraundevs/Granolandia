@@ -25,6 +25,7 @@ namespace Granolandia
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.
 			services.Configure<CookiePolicyOptions>(options =>
 			{
 				// This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -34,6 +35,12 @@ namespace Granolandia
 
 			services.AddSingleton<IGranolaData, InMemoryGranolaData>();
 
+			
+			//services.AddDbContextPool<GranolandiaDbContext>(options =>
+			//{
+			//	options.UseSqlServer(Configuration.GetConnectionString(Granolandia);
+
+			//});
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 		}
 
